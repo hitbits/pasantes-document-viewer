@@ -1,0 +1,53 @@
+{
+  "author": "Javier Sánchez Ochando <jsanchez@pasant.es>",
+  "bugs": "https://github.com/hitbits/pasantes-document-viewer/issues",
+  "description": "PDF document viewer component for Angular based on PDFjs",
+  "contributors": "Javier Sánchez Ochando <jsanchez@pasant.es>",
+  "dependencies": {
+    "@angular/animations": "~7.2.0",
+    "@angular/common": "~7.2.0",
+    "@angular/compiler": "~7.2.0",
+    "@angular/core": "~7.2.0",
+    "@angular/forms": "~7.2.0",
+    "@angular/platform-browser": "~7.2.0",
+    "@angular/platform-browser-dynamic": "~7.2.0",
+    "@angular/router": "~7.2.0",
+    "core-js": "^2.5.4",
+    "rxjs": "~6.3.3",
+    "tslib": "^1.9.0",
+    "zone.js": "~0.8.26"
+  },
+  "devDependencies": {
+    "@angular/cli": "~7.3.1",
+    "@angular/compiler-cli": "~7.2.0",
+    "@angular/language-service": "~7.2.0",
+    "@types/node": "~8.9.4",
+    "codelyzer": "~4.5.0",
+    "ts-node": "~7.0.0",
+    "tslint": "~5.11.0",
+    "typescript": "~3.2.2"
+  },
+  "homepage": "https://github.com/hitbits/pasantes-document-viewer#readme",
+  "keywords": [
+    "angular",
+    "document-viewer",
+    "pdf",
+    "pdfjs",
+    "pdf-viewer"
+  ],
+  "maintainers": "Javier Sánchez Ochando <jsanchez@pasant.es>",
+  "name": "pasantes-document-viewer",
+  "license": "GPL-2.0",
+  "private": false,
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/hitbits/pasantes-document-viewer.git"
+  },
+  "scripts": {
+    "build": "ng build",
+    "lint": "ng lint",
+    "ng": "ng",
+    "start": "ng serve"
+  },
+  "version": "0.0.0"
+}
