@@ -17,6 +17,14 @@
     "lib": [
       "es2018",
       "dom"
-    ]
+    ],
+    "paths": {
+      "pasantes-document-viewer": [
+        "dist/pasantes-document-viewer"
+      ],
+      "pasantes-document-viewer/*": [
+        "dist/pasantes-document-viewer/*"
+      ]
+    }
   }
 }
