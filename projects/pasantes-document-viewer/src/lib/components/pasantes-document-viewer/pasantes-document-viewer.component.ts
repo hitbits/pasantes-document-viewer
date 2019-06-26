@@ -4,11 +4,13 @@ import { AfterViewInit,
          ElementRef,
          Input,
          OnDestroy,
-         ViewChild      } from '@angular/core';
+         ViewChild        } from '@angular/core';
 
 // pdfjs module dependencies
-import { getDocument    } from 'pdfjs-dist/build/pdf.js';
-import { PDFViewer      } from 'pdfjs-dist/web/pdf_viewer.js';
+import { getDocument,
+         PDFDocumentProxy } from 'pdfjs-dist/lib/pdf.js';
+import { TextLayerMode    } from 'pdfjs-dist/lib/web/ui_utils.js';
+import { PDFViewer        } from 'pdfjs-dist/lib/web/pdf_viewer.js';
 
 
 @Component({
@@ -39,7 +41,7 @@ export class PasantesDocumentViewerComponent implements AfterViewInit, OnDestroy
 
     // load the requested source
     this.loadingTask = getDocument(source);
-    this.loadingTask.promise.then(document => {
+    this.loadingTask.promise.then((document: PDFDocumentProxy) => {
       this.document = document;
       this.viewer.setDocument(document);
     });
@@ -48,8 +50,8 @@ export class PasantesDocumentViewerComponent implements AfterViewInit, OnDestroy
   public ngAfterViewInit() {
     // initialize pdf viewer
     this.viewer = new PDFViewer({
-      container: this.container.nativeElement,  // set container element
-      textLayerMode: 0                          // disable text layer
+      container: this.container.nativeElement,
+      textLayerMode: TextLayerMode.DISABLE
     });
   }
 
