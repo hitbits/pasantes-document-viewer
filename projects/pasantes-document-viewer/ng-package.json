@@ -2,7 +2,12 @@
   "$schema": "../../node_modules/ng-packagr/ng-package.schema.json",
   "dest": "../../dist/pasantes-document-viewer",
   "lib": {
-    "entryFile": "src/public-api.ts"
+    "entryFile": "src/public-api.ts",
+    "umdModuleIds": {
+      "pdfjs-dist/build/pdf.js": "pdf",
+      "pdfjs-dist/web/lib/pdf_viewer.js": "pdf-viewer",
+      "pdfjs-dist/web/lib/ui_utils.js": "ui-utils"
+    }
   },
   "whitelistedNonPeerDependencies": [
     "pdfjs-dist"
