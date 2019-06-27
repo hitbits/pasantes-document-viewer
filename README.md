@@ -1,8 +1,12 @@
 # Pasantes Document Viewer
+[![GitHub](https://img.shields.io/github/license/hitbits/pasantes-document-viewer.svg?color=blue)](https://github.com/hitbits/pasantes-document-viewer/blob/master/LICENSE.txt)
+[![version](https://img.shields.io/github/package-json/v/hitbits/pasantes-document-viewer.svg?color=blue)](https://github.com/hitbits/pasantes-document-viewer/releases)
+[![npm](https://img.shields.io/npm/v/pasantes-document-viewer.svg?color=blue)](https://www.npmjs.com/package/pasantes-document-viewer)
+
 This is a PDF document viewer component for Angular based on [PDF.js](https://mozilla.github.io/pdf.js/)
 
 ## Screenshot
 <img src="projects/demo/src/assets/images/screenshot-02.png" />
 
 ## License
-[GPL-2.0](https://www.gnu.org/licenses/old-licenses/gpl-2.0-standalone.html) © [Pasantes Software](https://github.com/hitbits)
+Pasantes Document Viewer is available under [GPL-2.0 license](https://www.gnu.org/licenses/old-licenses/gpl-2.0-standalone.html).
