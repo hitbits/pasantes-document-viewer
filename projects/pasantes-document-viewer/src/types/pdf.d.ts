@@ -3,31 +3,24 @@
 // Definitions by: Javier Sanchez Ochando <jsanchez@pasant.es>
 
 declare module 'pdfjs-dist/lib/pdf.js' {
-  interface PDFPromise<T> {
-    isResolved(): boolean;
-    isRejected(): boolean;
-    resolve(value: T): void;
-    reject(reason: string): void;
-    then<U>(onResolve: (promise: T) => U, onReject?: (reason: string) => void): PDFPromise<U>;
-  }
+  function getDocument(source: string): PDFDocumentLoadingTask;
 
-  interface PDFLoadingTask<T> {
-    promise: PDFPromise<T>;
-  }
-
-  interface PDFProgressData {
-    loaded: number;
-    total: number;
+  interface PDFDocumentLoadingTask {
+    readonly promise: Promise<PDFDocumentProxy>;
+    destroy();
   }
 
   interface PDFDocumentProxy {
+    readonly numPages: number;
+    readonly fingerprint: string;
+
+    getPage(pageNumber: number): Promise<PDFPageProxy>;
+    getPageIndex(reference: PDFPageReference): Promise;
     destroy(): void;
   }
 
-  function getDocument(
-    source: string,
-    pdfDataRangeTransport?: any,
-    passwordCallback?: (fn: (password: string) => void, reason: string) => string,
-    progressCallback?: (progressData: PDFProgressData) => void
-  ): PDFLoadingTask<PDFDocumentProxy>;
+  interface PDFPageReference {
+    number: number;
+    gen: number;
+  }
 }

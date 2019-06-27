@@ -11,6 +11,7 @@ declare module 'pdfjs-dist/lib/web/pdf_viewer.js' {
 
   class BaseViewer {
     constructor(options: PDFViewerOptions);
+    setDocument(document: PDFDocumentProxy);
   }
 
   class PDFViewer extends BaseViewer {}
