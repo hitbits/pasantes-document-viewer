@@ -4,13 +4,13 @@ import { AfterViewInit,
          ElementRef,
          Input,
          OnDestroy,
-         ViewChild        } from '@angular/core';
+         ViewChild               } from '@angular/core';
 
 // pdfjs module dependencies
-import { getDocument,
-         PDFDocumentProxy } from 'pdfjs-dist/lib/pdf.js';
-import { TextLayerMode    } from 'pdfjs-dist/lib/web/ui_utils.js';
-import { PDFViewer        } from 'pdfjs-dist/lib/web/pdf_viewer.js';
+import { PDFDocumentLoadingTask,
+         PDFDocumentProxy        } from 'pdfjs-dist/lib/pdf.js';
+import { TextLayerMode           } from 'pdfjs-dist/lib/web/ui_utils.js';
+import { PDFViewer               } from 'pdfjs-dist/lib/web/pdf_viewer.js';
 
 // pasantes document viewer dependencies
 import { PDFService       } from '../../services';
@@ -25,10 +25,10 @@ import { PDFService       } from '../../services';
 export class PasantesDocumentViewerComponent implements AfterViewInit, OnDestroy {
   @ViewChild('container')
   private container: ElementRef<HTMLElement>;
-  private viewer: any;
+  private viewer: PDFViewer;
 
-  private loadingTask: any;
-  private document: any;
+  private loadingTask: PDFDocumentLoadingTask;
+  private document: PDFDocumentProxy;
 
   @Input()
   set source(source: string) {
@@ -45,10 +45,13 @@ export class PasantesDocumentViewerComponent implements AfterViewInit, OnDestroy
 
     // load the requested source
     this.loadingTask = this.pdfService.loadDocument(source);
-    this.loadingTask.promise.then((document: PDFDocumentProxy) => {
-      this.document = document;
-      this.viewer.setDocument(document);
-    });
+    this.loadingTask.promise
+      .then((document: PDFDocumentProxy) => {
+        this.document = document;
+        this.viewer.setDocument(document);
+      }).catch((error: Error) => {
+        console.log(error.message);
+      });
   }
 
   constructor(private pdfService: PDFService) {}
