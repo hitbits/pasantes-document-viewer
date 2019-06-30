@@ -19,6 +19,6 @@
   padding: 1rem;
 }
 
-:host /deep/ .page {
+:host ::ng-deep .page {
   margin: 2rem auto;
 }
