@@ -23,7 +23,7 @@ import { PDFService       } from '../../services';
   providers: [ PDFService                                  ]
 })
 export class PasantesDocumentViewerComponent implements AfterViewInit, OnDestroy {
-  @ViewChild('container')
+  @ViewChild('container', { static: false })
   private container: ElementRef<HTMLElement>;
   private viewer: PDFViewer;
 
