@@ -13,7 +13,7 @@ import { TextLayerMode           } from 'pdfjs-dist/lib/web/ui_utils.js';
 import { PDFViewer               } from 'pdfjs-dist/lib/web/pdf_viewer.js';
 
 // pasantes document viewer dependencies
-import { PDFService       } from '../../services';
+import { PDFService       } from '../../services/pdf.service';
 
 
 @Component({

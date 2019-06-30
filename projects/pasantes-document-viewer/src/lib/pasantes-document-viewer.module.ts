@@ -2,7 +2,7 @@
 import { NgModule                        } from '@angular/core';
 
 // document-viewer dependencies
-import { PasantesDocumentViewerComponent } from './components';
+import { PasantesDocumentViewerComponent } from './components/pasantes-document-viewer/pasantes-document-viewer.component';
 
 
 @NgModule({
