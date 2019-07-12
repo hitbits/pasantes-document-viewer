@@ -31,6 +31,9 @@ export class PasantesDocumentViewerComponent implements AfterViewInit, OnDestroy
   private document: PDFDocumentProxy;
 
   @Input()
+  private scale: string;
+
+  @Input()
   set source(source: string) {
     // checks that source is not null or empty
     if (!source) {
@@ -54,7 +57,9 @@ export class PasantesDocumentViewerComponent implements AfterViewInit, OnDestroy
       });
   }
 
-  constructor(private pdfService: PDFService) {}
+  constructor(private pdfService: PDFService) {
+    this.scale = 'auto';
+  }
 
   public ngAfterViewInit() {
     // initialize pdf viewer
@@ -79,6 +84,22 @@ export class PasantesDocumentViewerComponent implements AfterViewInit, OnDestroy
   }
 
   public onPagesInit(): void {
-    this.viewer.currentScaleValue = 'page-width';
+    this.setScale(this.scale);
+  }
+
+  protected setScale(value: string) {
+    // set scale value on viewer
+    switch (value) {
+      case 'auto':
+      case 'page-actual':
+      case 'page-fit':
+      case 'page-height':
+      case 'page-width':
+        this.viewer.currentScaleValue = value;
+        break;
+      default:
+        console.log(`Warning: '${value}' is not a valid scale value of document viewer. Setting scale value to 'auto'`);
+        this.viewer.currentScaleValue = 'auto';
+    }
   }
 }
