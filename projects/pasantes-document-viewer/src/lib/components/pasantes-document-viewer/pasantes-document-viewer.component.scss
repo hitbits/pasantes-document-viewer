@@ -16,9 +16,16 @@
   align-items: center;
   display: flex;
   flex-direction: column;
-  padding: 1rem;
+}
+
+:host ::ng-deep .page:first-of-type {
+  margin: 20px 0 11px 0;
 }
 
 :host ::ng-deep .page {
-  margin: 2rem auto;
+  margin: 11px 0;
+}
+
+:host ::ng-deep .page:last-of-type {
+  margin: 11px 0 20px 0;
 }
