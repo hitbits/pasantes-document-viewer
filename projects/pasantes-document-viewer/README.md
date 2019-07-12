@@ -10,7 +10,7 @@ This is a PDF document viewer component for Angular based on [PDF.js](https://mo
 * **Scale**: The viewer can show PDF documents scaled. The accepted values are: auto, page-actual, page-fit, page-height or page-width.
 
 ## Screenshot
-<img src="https://github.com/hitbits/pasantes-document-viewer/blob/master/projects/demo/src/assets/images/screenshot-01.png" />
+<img src="https://github.com/hitbits/pasantes-document-viewer/blob/master/projects/demo/src/assets/images/screenshot-01.png?raw=true" />
 
 ## License
 Pasantes Document Viewer is available under [GPL-2.0 license](https://www.gnu.org/licenses/old-licenses/gpl-2.0-standalone.html).
