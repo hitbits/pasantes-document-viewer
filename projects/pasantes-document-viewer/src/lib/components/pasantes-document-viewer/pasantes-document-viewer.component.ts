@@ -87,6 +87,10 @@ export class PasantesDocumentViewerComponent implements AfterViewInit, OnDestroy
     this.setScale(this.scale);
   }
 
+  public onWindowResize() {
+    this.setScale(this.scale);
+  }
+
   protected setScale(value: string) {
     // set scale value on viewer
     switch (value) {
