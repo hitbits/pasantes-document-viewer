@@ -13,7 +13,7 @@ import { TextLayerMode           } from 'pdfjs-dist/lib/web/ui_utils.js';
 import { PDFViewer               } from 'pdfjs-dist/lib/web/pdf_viewer.js';
 
 // pasantes document viewer dependencies
-import { PDFService       } from '../../services/pdf.service';
+import { PDFService              } from '../../services/pdf.service';
 
 
 @Component({
@@ -29,6 +29,9 @@ export class PasantesDocumentViewerComponent implements AfterViewInit, OnDestroy
 
   private loadingTask: PDFDocumentLoadingTask;
   private document: PDFDocumentProxy;
+
+  @Input()
+  private scale: string;
 
   @Input()
   set source(source: string) {
@@ -54,7 +57,9 @@ export class PasantesDocumentViewerComponent implements AfterViewInit, OnDestroy
       });
   }
 
-  constructor(private pdfService: PDFService) {}
+  constructor(private pdfService: PDFService) {
+    this.scale = 'auto';
+  }
 
   public ngAfterViewInit() {
     // initialize pdf viewer
@@ -75,6 +80,30 @@ export class PasantesDocumentViewerComponent implements AfterViewInit, OnDestroy
     if (this.document) {
       this.document.destroy();
       this.document = null;
+    }
+  }
+
+  public onPagesInit(): void {
+    this.setScale(this.scale);
+  }
+
+  public onWindowResize() {
+    this.setScale(this.scale);
+  }
+
+  protected setScale(value: string) {
+    // set scale value on viewer
+    switch (value) {
+      case 'auto':
+      case 'page-actual':
+      case 'page-fit':
+      case 'page-height':
+      case 'page-width':
+        this.viewer.currentScaleValue = value;
+        break;
+      default:
+        console.log(`Warning: '${value}' is not a valid scale value of document viewer. Setting scale value to 'auto'`);
+        this.viewer.currentScaleValue = 'auto';
     }
   }
 }

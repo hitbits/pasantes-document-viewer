@@ -10,6 +10,9 @@ declare module 'pdfjs-dist/lib/web/pdf_viewer.js' {
   }
 
   class BaseViewer {
+    readonly currentPageNumber: number;
+    currentScaleValue: string;
+
     constructor(options: PDFViewerOptions);
     setDocument(document: PDFDocumentProxy);
   }
