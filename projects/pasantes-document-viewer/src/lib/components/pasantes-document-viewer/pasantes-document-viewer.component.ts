@@ -13,7 +13,7 @@ import { TextLayerMode           } from 'pdfjs-dist/lib/web/ui_utils.js';
 import { PDFViewer               } from 'pdfjs-dist/lib/web/pdf_viewer.js';
 
 // pasantes document viewer dependencies
-import { PDFService       } from '../../services/pdf.service';
+import { PDFService              } from '../../services/pdf.service';
 
 
 @Component({
@@ -76,5 +76,9 @@ export class PasantesDocumentViewerComponent implements AfterViewInit, OnDestroy
       this.document.destroy();
       this.document = null;
     }
+  }
+
+  public onPagesInit(): void {
+    this.viewer.currentScaleValue = 'page-width';
   }
 }
