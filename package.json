@@ -22,7 +22,7 @@
     "@angular/language-service": "8.0.x",
     "@types/node": "10.12.x",
     "codelyzer": "5.0.x",
-    "ng-packagr": "5.1.x",
+    "ng-packagr": "10.1.x",
     "ts-node": "7.0.x",
     "tsickle": "0.35.x",
     "tslint": "5.15.x",
