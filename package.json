@@ -6,7 +6,7 @@
   "dependencies": {
     "@angular/common": "8.0.x",
     "@angular/compiler": "8.0.x",
-    "@angular/core": "8.0.x",
+    "@angular/core": "11.0.x",
     "@angular/platform-browser": "8.0.x",
     "@angular/platform-browser-dynamic": "8.0.x",
     "core-js": "2.6.x",
